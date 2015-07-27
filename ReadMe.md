@@ -29,7 +29,6 @@ Username: `root`
 
 Password: `password`
 
-
 ### MongoDB
 
 IP: `localhost/127.0.0.1`
@@ -40,16 +39,30 @@ Username: `root`
 
 Password: `password`
 
-
 ### Redis
 
 IP: `localhost/127.0.0.1`
 
 Port: `6379 (This is forwarded to our VM's 6379 port)`
 
+## Tools
 
-## TODO
-* multitail
-* phpmyAdmin
-* redismyadmin
-* rockmongo
+### phpMyAdmin
+Access: `http://localhost:8080/mysqlAdmin/`
+
+Username: `root`
+
+Password: `password`
+
+### RockMongo
+Access: `http://localhost:8080/mongoAdmin/`
+
+Username: `admin`
+
+Password: `admin`
+
+### phpRedisAdmin
+Access: `http://localhost:8080/redisAdmin/`
+
+### TODO
+add symlinks to provision script
