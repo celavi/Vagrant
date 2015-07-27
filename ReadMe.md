@@ -46,3 +46,10 @@ Password: `password`
 IP: `localhost/127.0.0.1`
 
 Port: `6379 (This is forwarded to our VM's 6379 port)`
+
+
+## TODO
+* multitail
+* phpmyAdmin
+* redismyadmin
+* rockmongo
