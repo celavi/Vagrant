@@ -4,7 +4,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "alesl/Vagrant"
+  config.vm.box = "alesl/vagrantWebDev"
   config.vm.box_version = "0.1.0"
   config.vm.box_check_update = true
   config.vm.box_download_insecure = true
@@ -13,7 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Port Forwarding for:
   ## NginX
-  config.vm.network "forwarded_port", guest: 80, host: 81, auto_correct: true
+  config.vm.network "forwarded_port", guest: 80, host: 8080, auto_correct: true
   ## MySQL
   config.vm.network "forwarded_port", guest: 3306, host: 3306, auto_correct: true
   ## MongoDB

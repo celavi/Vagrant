@@ -1,23 +1,29 @@
-# VagrantPHP
+# vagrantWebDev
 
-Want to help keep the Vagrant box on DigitalOcean for download?  Consider donating a measely dollar: [Donate BitCoins](https://www.coinbase.com/checkouts/063b9abdd95de3182b0239fae774c0ae)
+Simple to use Vagrant virtual host setup for you to handle of web development. All that you have to do to get started is run the started command:
 
-Simple to use Vagrant virtual host setup for you to handle of your PHP 5.5 development. All that you have to do to get started is run the started command:
-
-* `git clone https://www.github.com/JenkinsDev/VagrantPHP`
+* `git clone https://github.com/celavi/vagrantWebDev`
 * `cd VagrantPHP`
 * `vagrant up`
 
 Now all that is left is to put your projects in the `sites` directory and code to your hearts content! When you are done you can run `vagrant halt` to freeze the Vagrant VM.
 
-## Databases
+## NginX
+IP: `localhost/127.0.0.1`
 
+Port: `8080 (This is forwarded to our VM's 80 port)`
+
+## NodeJS
+
+Port: `3000 (This is forwarded to our VM's 3000 port)`
+
+## Databases
 
 ### MySQL
 
 IP: `localhost/127.0.0.1`
 
-Port: `33060 (This is forwarded to our VM's 3306 port)`
+Port: `3306 (This is forwarded to our VM's 3306 port)`
 
 Username: `root`
 
@@ -28,7 +34,7 @@ Password: `password`
 
 IP: `localhost/127.0.0.1`
 
-Port: `20017 (This is forwarded to our VM's 27017 port)`
+Port: `27017 (This is forwarded to our VM's 27017 port)`
 
 Username: `root`
 
@@ -39,4 +45,4 @@ Password: `password`
 
 IP: `localhost/127.0.0.1`
 
-Port: `63790 (This is forwarded to our VM's 6379 port)`
+Port: `6379 (This is forwarded to our VM's 6379 port)`
