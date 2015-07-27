@@ -66,3 +66,8 @@ Access: `http://localhost:8080/redisAdmin/`
 
 ### TODO
 add symlinks to provision script
+~~~bash
+sudo ln -s /usr/share/phpmyadmin /vagrant/sites/mysql
+sudo ln -s /usr/share/rockmongo /vagrant/sites/mongoAdmin
+sudo ln -s /usr/share/phpRedisAdmin /vagrant/sites/redisAdmin
+~~~
