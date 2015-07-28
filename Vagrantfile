@@ -37,4 +37,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
   end
+
+  # provision
+  config.vm.provision "shell", path: "shell-scripts/provision.sh", privileged: true
 end
