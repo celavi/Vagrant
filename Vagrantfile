@@ -5,7 +5,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "alesl/vagrantWebDev"
-  config.vm.box_version = "0.2.0"
+  config.vm.box_version = "0.2.1"
   config.vm.box_check_update = true
   config.vm.box_download_insecure = true
 
