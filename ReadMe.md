@@ -1,5 +1,9 @@
 # vagrantWebDev
 
+Box versions and description can be found at
+
+* `https://atlas.hashicorp.com/alesl/boxes/vagrantWebDev`
+
 Simple to use Vagrant virtual host setup for you to handle of web development. All that you have to do to get started is run the started command:
 
 * `git clone https://github.com/celavi/vagrantWebDev`
