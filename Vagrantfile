@@ -5,12 +5,9 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "alesl/vagrantWebDev"
-  config.vm.box_version = "0.2.1"
+  config.vm.box_version = "0.2.3"
   config.vm.box_check_update = true
   config.vm.box_download_insecure = true
-
-  config.ssh.private_key_path = "~/.ssh/id_rsa"
-  config.ssh.forward_agent = true
 
   config.vm.synced_folder ".", "/vagrant", :mount_options => ["dmode=777","fmode=666"]
 
