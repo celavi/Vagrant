@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-echo Creating symlinks for phpMyAdmin, rockmongo and phpRedisAdmin
-ln -s /usr/share/phpmyadmin /vagrant/sites/mysqlAdmin
-ln -s /usr/share/rockmongo /vagrant/sites/mongoAdmin
-ln -s /usr/share/phpRedisAdmin /vagrant/sites/redisAdmin
+echo Creating symlinks for Adminer, AdminerEditor, rockmongo and phpRedisAdmin
+ln -s /usr/local/src/Adminer /vagrant/sites/Adminer
+ln -s /usr/local/src/AdminerEditor /vagrant/sites/AdminerEditor
+ln -s /usr/local/src/rockmongo /vagrant/sites/rockmongo
+ln -s /usr/local/src/phpRedisAdmin /vagrant/sites/phpRedisAdmin
