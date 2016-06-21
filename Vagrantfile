@@ -15,6 +15,13 @@ Vagrant.configure(2) do |config|
     config.vm.box_version = "0.3.0"
     config.vm.box_check_update = true
     config.vm.box_download_insecure = true
+    
+    # Proxy Configuration Plugin for Vagrant
+    if Vagrant.has_plugin?("vagrant-proxyconf")
+      config.proxy.http     = "http://example.proxy.com:8080/"
+      config.proxy.https    = "http://example.proxy.com:8080/"
+      config.proxy.no_proxy = "localhost,127.0.0.1"
+    end
 
     # vagrant-bindfs plugin
     if Vagrant.has_plugin?("vagrant-bindfs")
