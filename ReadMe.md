@@ -87,3 +87,6 @@ Password: `admin`
 Access: `http://localhost:8080/phpRedisAdmin/`
 
 ![phpRedisAdmin](https://cloud.githubusercontent.com/assets/99165/15125220/018544d8-162c-11e6-9562-53f4234caf8d.png)
+
+## License
+vagrantWebDev is licensed under the MIT License - see the LICENSE file for details.

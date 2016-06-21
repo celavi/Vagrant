@@ -12,10 +12,10 @@ Vagrant.configure(2) do |config|
     end
 
     config.vm.box = "alesl/vagrantWebDev"
-    config.vm.box_version = "0.3.0"
+    config.vm.box_version = "0.4.0"
     config.vm.box_check_update = true
     config.vm.box_download_insecure = true
-    
+
     # Proxy Configuration Plugin for Vagrant
     if Vagrant.has_plugin?("vagrant-proxyconf")
       config.proxy.http     = "http://example.proxy.com:8080/"
