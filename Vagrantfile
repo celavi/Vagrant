@@ -1,6 +1,16 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# General project settings
+#################################
+
+  # IP Address for the host only network, change it to anything you like
+  # but please keep it within the IPv4 private network range
+  ip_address = "192.168.56.105"
+
+  # The project name is base for directories, hostname and alike
+  project_name = "webdev"
+
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
@@ -25,8 +35,8 @@ Vagrant.configure(2) do |config|
 
     # vagrant-bindfs plugin
     if Vagrant.has_plugin?("vagrant-bindfs")
-        config.vm.synced_folder ".", "/vagrant", type: "nfs", :mount_options => ["dmode=777","fmode=666"]
-        config.bindfs.bind_folder "/vagrant", "/vagrant"
+        config.vm.synced_folder ".", "/vagrant-nfs", type: "nfs"
+        config.bindfs.bind_folder "/vagrant-nfs", "/vagrant", :perms => "og-x:og+rD:u=rwX:g+rw", :owner => 'vagrant', :group => 'www-data'
     else
         config.vm.synced_folder ".", "/vagrant", :mount_options => ["dmode=777","fmode=666"]
     end
@@ -43,8 +53,26 @@ Vagrant.configure(2) do |config|
     ## Node
     config.vm.network "forwarded_port", guest: 3000, host: 3000, auto_correct: true
 
-    # Create a private network, which allows host-only access to the machine using a specific IP.
-    config.vm.network :private_network, ip: "192.168.56.105"
+    # Try to fix default: stdin: is not a tty
+    config.vm.provision "fix-no-tty", type: "shell" do |s|
+        s.privileged = false
+        s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
+    end
+
+    # vagrant-hostmanager plugin
+    if Vagrant.has_plugin?("vagrant-hostmanager")
+        config.hostmanager.enabled = true
+        config.hostmanager.manage_host = true
+        config.vm.define project_name do |node|
+          node.vm.hostname = project_name + ".local"
+          node.vm.network :private_network, ip: ip_address
+          node.hostmanager.aliases = [ "www." + project_name + ".local" ]
+        end
+        config.vm.provision :hostmanager
+    else
+        # Create a private network, which allows host-only access to the machine using a specific IP.
+        config.vm.network :private_network, ip: ip_address
+    end
 
     config.vm.provider "virtualbox" do |v|
         v.memory = 1024
