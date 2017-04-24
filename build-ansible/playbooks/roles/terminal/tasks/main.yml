@@ -1,0 +1,27 @@
+---
+- name: Set zsh as default shell
+  user: name={{ www_user}} shell=/bin/zsh
+
+- name: Install Antigen - plugin manager for zsh
+  shell: cd ~/ && curl -L git.io/antigen > antigen.zsh
+  become: true
+  become_user: "{{ www_user }}"
+
+- name: Copy .zshrc config
+  template:
+    src=.zshrc.j2
+    dest=~/.zshrc
+  become: true
+  become_user: "{{ www_user }}"
+
+- name: Clone tmux configuration
+  git: repo=https://github.com/tony/tmux-config.git
+       dest=~/.tmux
+       update=no
+  become: true
+  become_user: "{{ www_user }}"
+
+- name: Copy tmux config to home
+  shell: cd ~/ && ln -s ~/.tmux/.tmux.conf ~/.tmux.conf
+  become: true
+  become_user: "{{ www_user }}"

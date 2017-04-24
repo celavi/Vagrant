@@ -1,0 +1,24 @@
+---
+- name: "FIX: Ubuntu 16.04 LTS doesn't come with certain modules, required by ansible"
+  raw: apt-get install python-minimal aptitude -y
+  become: true
+  become_user: root
+  become_method: sudo
+
+- name: Update and upgrade apt packages
+  become: true
+  apt:
+    upgrade: yes
+    update_cache: yes
+    cache_valid_time: 86400 #One day
+
+- name: Install new packages
+  apt: name={{ item }} state=present
+  with_items:
+    - curl
+    - git
+    - zsh
+    - tmux
+    - cmake
+    - gcc
+    - g++
